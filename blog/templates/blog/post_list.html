@@ -1,0 +1,21 @@
+<!-- blog/templates/blog/post_list.html -->
+{% extends "blog/base.html" %}
+
+{% block title %}Blog Posts{% endblock %}
+
+{% block content %}
+    <h2>All Posts</h2>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <h3>{{ post.title }}</h3>
+                <p>By {{ post.author }}</p>
+                <p>Published on {{ post.published_date|date:"F j, Y" }}</p>
+                <p>{{ post.content|truncatewords:30 }}</p>
+                <a href="{% url 'post_detail' post.id %}">Read more</a>
+            </li>
+        {% empty %}
+            <li>No posts are available.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
