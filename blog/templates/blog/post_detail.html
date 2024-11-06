@@ -10,5 +10,6 @@
         <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width:100%;">
     {% endif %}
     <p>{{ post.content }}</p>
+    <a href="{% url 'delete_post' post.id %}">Delete Post</a><br><br>
     <a href="{% url 'post_list' %}">Back to all posts</a>
 {% endblock %}

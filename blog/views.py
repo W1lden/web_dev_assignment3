@@ -1,7 +1,7 @@
 from django.views.generic import ListView, DetailView
 from .models import Post
 from .forms import PostForm
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 class PostListView(ListView):
     model = Post
@@ -25,3 +25,10 @@ def create_post(request):
     else:
         form = PostForm()
     return render(request, 'blog/create_post.html', {'form': form})
+
+def delete_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    if request.method == 'POST':
+        post.delete()
+        return redirect('post_list')
+    return render(request, 'blog/delete_post.html', {'post': post})
