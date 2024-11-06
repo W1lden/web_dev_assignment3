@@ -17,7 +17,7 @@ class PublishedPostManager(models.Manager):
 class Post(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.CharField(max_length=100)
     published_date = models.DateTimeField(auto_now_add=True)
     categories = models.ManyToManyField(Category, related_name='posts')
     image = models.ImageField(upload_to='post_images/', blank=True, null=True)
