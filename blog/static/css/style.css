@@ -25,3 +25,9 @@ a {
     color: #007bff;
     text-decoration: none;
 }
+
+.post-image {
+    width: 70px;
+    height: 50px;
+    object-fit: cover;
+}

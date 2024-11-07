@@ -9,7 +9,7 @@ class PostListView(ListView):
     context_object_name = 'posts'
 
     def get_queryset(self):
-        return Post.published.all()  # Use custom manager for published posts
+        return Post.published.all()
 
 class PostDetailView(DetailView):
     model = Post

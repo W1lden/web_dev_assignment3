@@ -7,7 +7,7 @@
     <p>By {{ post.author }}</p>
     <p>Published on {{ post.published_date|date:"F j, Y" }}</p>
     {% if post.image %}
-        <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width:100%;">
+        <img src="{{ post.image.url }}" alt="{{ post.title }}" width="300" height="300">
     {% endif %}
     <p>{{ post.content }}</p>
     <a href="{% url 'delete_post' post.id %}">Delete Post</a><br><br>
